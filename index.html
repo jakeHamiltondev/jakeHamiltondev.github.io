@@ -3,508 +3,382 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jacob Hamilton | Application Development & Business Intelligence</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet" />
+  <title>Jacob Hamilton | Technical Project Manager &amp; Builder</title>
+  <meta name="description" content="Jacob Hamilton — Technical Project Manager, U.S. Marine Corps Veteran, and full-stack builder. UNCW graduate, PMP candidate, based in Wilmington, NC." />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --navy:      #0d1b2a;
-      --navy-mid:  #152336;
-      --navy-lite: #1e3450;
-      --gold:      #c8a84b;
-      --gold-lite: #e2c97e;
-      --white:     #eef2f7;
-      --muted:     #7a94ae;
-      --border:    #243448;
-      --header-h:  98px;
-      --font-display: 'Playfair Display', Georgia, serif;
-      --font-body:    'Source Sans 3', sans-serif;
-      --font-mono:    'Source Code Pro', monospace;
+      --navy:   #1B3A6B;
+      --navy-dark: #122850;
+      --emerald: #1D9E75;
+      --emerald-light: #E1F5EE;
+      --text:   #1a1a1a;
+      --muted:  #5a6072;
+      --border: #e2e6f0;
+      --bg:     #f7f8fc;
+      --white:  #ffffff;
+      --tag-bg: #eef1f8;
+      --red:    #E24B4A;
     }
-    html { scroll-behavior: smooth; }
-    body { background: var(--navy); color: var(--white); font-family: var(--font-body); font-size: 16px; line-height: 1.7; }
-    a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
-    a:hover { color: var(--gold-lite); }
-
-    /* ── HEADER ── */
-    header {
-      background: var(--navy-mid);
-      border-bottom: 2px solid var(--gold);
-      padding: 20px 48px;
-      display: flex;
-      align-items: center;
-      gap: 22px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.4);
-    }
-    .header-photo {
-      width: 58px; height: 58px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center 10%;
-      border: 2px solid var(--gold);
-      flex-shrink: 0;
-    }
-    .header-text h1 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--white); }
-    .header-text .tagline { font-size: 0.75rem; color: var(--gold); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; margin-top: 1px; }
-    header nav { margin-left: auto; display: flex; gap: 4px; }
-    header nav a { color: var(--muted); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 7px 15px; border-radius: 3px; transition: background 0.2s, color 0.2s; }
-    header nav a:hover { background: var(--navy-lite); color: var(--gold); }
-
-    /* ── LAYOUT ── */
-    .shell { display: grid; grid-template-columns: 272px 1fr; align-items: start; }
-
-    /* ── SIDEBAR ── */
-    aside {
-      background: var(--navy-mid);
-      border-right: 1px solid var(--border);
-      padding: 36px 26px;
-      position: sticky;
-      top: var(--header-h);
-      height: calc(100vh - var(--header-h));
-      overflow-y: auto;
-    }
-    .sidebar-photo-wrap { text-align: center; margin-bottom: 26px; }
-    .sidebar-photo { width: 138px; height: 138px; border-radius: 50%; object-fit: cover; object-position: center 10%; border: 3px solid var(--gold); display: block; margin: 0 auto 12px; }
-    .sidebar-name { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--white); }
-    .sidebar-role { font-size: 0.72rem; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 3px; }
-    .sidebar-section { margin-bottom: 28px; }
-    .sidebar-label { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 11px; padding-bottom: 5px; border-bottom: 1px solid var(--border); }
-    .contact-item { display: flex; flex-direction: column; font-size: 0.82rem; color: var(--muted); margin-bottom: 10px; }
-    .contact-item .ci-label { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1px; }
-    .contact-item a, .contact-item span { color: var(--white); font-size: 0.82rem; word-break: break-all; }
-    .contact-item a:hover { color: var(--gold); }
-    .status-badge { background: rgba(200,168,75,0.1); border: 1px solid var(--gold); border-radius: 4px; padding: 10px 13px; font-size: 0.74rem; color: var(--gold); font-family: var(--font-mono); letter-spacing: 0.03em; line-height: 1.8; }
-
-    /* ── MAIN ── */
-    main { padding: 52px 60px 80px; }
-    section { margin-bottom: 72px; scroll-margin-top: 120px; }
-    .section-title { font-family: var(--font-display); font-size: 1.45rem; font-weight: 700; color: var(--white); margin-bottom: 3px; display: flex; align-items: center; }
-    .section-title::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, var(--gold), transparent); margin-left: 14px; }
-    .section-sub { font-size: 0.73rem; color: var(--muted); letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 28px; margin-top: 3px; }
-
-    /* ── ABOUT ── */
-    .about-text p { color: #b0c8de; font-size: 0.95rem; margin-bottom: 13px; }
-    .about-text p strong { color: var(--white); }
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(195px, 1fr)); gap: 13px; margin-top: 26px; }
-    .skill-card { background: var(--navy-mid); border: 1px solid var(--border); border-radius: 6px; padding: 15px 17px; transition: border-color 0.2s; }
-    .skill-card:hover { border-color: var(--gold); }
-    .skill-card h4 { font-size: 0.67rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
-    .skill-card p { font-size: 0.81rem; color: var(--muted); line-height: 1.5; }
-
-    /* ── PROJECTS ── */
-    .project-card { background: var(--navy-mid); border: 1px solid var(--border); border-radius: 8px; padding: 24px 28px; margin-bottom: 16px; transition: border-color 0.22s, transform 0.18s; }
-    .project-card:hover { border-color: var(--gold); transform: translateY(-2px); }
-    .project-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
-    .project-title { font-family: var(--font-display); font-size: 1.08rem; font-weight: 600; color: var(--white); }
-    .tag { font-size: 0.67rem; font-family: var(--font-mono); padding: 3px 9px; border-radius: 3px; white-space: nowrap; border: 1px solid; flex-shrink: 0; }
-    .tag-active   { border-color: #3a7bd5; color: #3a7bd5; background: rgba(58,123,213,0.08); }
-    .tag-complete { border-color: #2ea87e; color: #2ea87e; background: rgba(46,168,126,0.08); }
-    .tag-wip      { border-color: var(--gold); color: var(--gold); background: rgba(200,168,75,0.08); }
-    .project-desc { font-size: 0.87rem; color: #8fa3b8; line-height: 1.65; margin-bottom: 13px; }
-    .project-stack { display: flex; flex-wrap: wrap; gap: 6px; }
-    .stack-pill { font-size: 0.69rem; font-family: var(--font-mono); background: var(--navy-lite); color: var(--muted); padding: 2px 9px; border-radius: 3px; }
-    .project-links { margin-top: 13px; display: flex; gap: 16px; }
-    .project-links a { font-size: 0.77rem; font-weight: 600; letter-spacing: 0.06em; color: var(--gold); border-bottom: 1px solid rgba(200,168,75,0.3); padding-bottom: 1px; }
-    .project-links a:hover { border-color: var(--gold); }
-
-    /* ── EXPERIENCE ── */
-    .timeline { border-left: 2px solid var(--border); padding-left: 28px; position: relative; }
-    .exp-card { position: relative; margin-bottom: 36px; }
-    .exp-card::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--gold); position: absolute; left: -34px; top: 7px; }
-    .exp-org { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--white); }
-    .exp-role { font-size: 0.81rem; color: var(--gold); letter-spacing: 0.05em; font-weight: 600; margin: 2px 0 1px; }
-    .exp-date { font-size: 0.73rem; color: var(--muted); font-family: var(--font-mono); margin-bottom: 10px; }
-    .exp-bullets { list-style: none; padding: 0; }
-    .exp-bullets li { font-size: 0.875rem; color: #8fa3b8; padding: 3px 0 3px 16px; position: relative; }
-    .exp-bullets li::before { content: '▸'; position: absolute; left: 0; color: var(--gold); font-size: 0.68rem; top: 6px; }
-
-    /* ── EDUCATION ── */
-    .edu-row { display: flex; align-items: flex-start; gap: 18px; padding: 18px 22px; background: var(--navy-mid); border: 1px solid var(--border); border-radius: 6px; margin-bottom: 12px; }
-    .edu-icon { width: 38px; height: 38px; border-radius: 6px; background: var(--navy-lite); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0; }
-    .edu-org { font-weight: 600; color: var(--white); font-size: 0.93rem; }
-    .edu-degree { font-size: 0.82rem; color: var(--muted); }
-    .edu-date { font-size: 0.73rem; color: var(--gold); font-family: var(--font-mono); margin-top: 2px; }
-
-    /* ── CONTACT ── */
-    .contact-intro { color: #8fa3b8; font-size: 0.92rem; margin-bottom: 24px; }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .contact-card { background: var(--navy-mid); border: 1px solid var(--border); border-radius: 6px; padding: 18px 20px; transition: border-color 0.2s; }
-    .contact-card:hover { border-color: var(--gold); }
-    .contact-card h4 { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 5px; }
-    .contact-card p, .contact-card a { font-size: 0.88rem; color: var(--white); }
-
-    /* ── FOOTER ── */
-    footer { background: var(--navy-mid); border-top: 1px solid var(--border); padding: 16px 48px; display: flex; justify-content: space-between; align-items: center; font-size: 0.76rem; color: var(--muted); }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .shell { grid-template-columns: 1fr; }
-      aside { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--border); }
-      main { padding: 32px 24px 60px; }
-      header { padding: 16px 22px; }
-      header nav { display: none; }
-      .skills-grid, .contact-grid { grid-template-columns: 1fr; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.6; }
+    a { color: var(--navy); text-decoration: none; }
+    a:hover { color: var(--emerald); }
+    .wrapper { display: grid; grid-template-columns: 280px 1fr; min-height: 100vh; }
+    .sidebar { background: var(--navy); color: #fff; padding: 40px 28px; position: sticky; top: 0; height: 100vh; overflow-y: auto; display: flex; flex-direction: column; gap: 28px; }
+    .sidebar-avatar { width: 96px; height: 96px; border-radius: 50%; background: var(--emerald); display: flex; align-items: center; justify-content: center; font-size: 36px; font-weight: 700; color: #fff; border: 3px solid rgba(255,255,255,0.2); }
+    .sidebar-name { font-size: 20px; font-weight: 700; line-height: 1.3; }
+    .sidebar-title { font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 4px; line-height: 1.4; }
+    .sidebar-nav { display: flex; flex-direction: column; gap: 4px; }
+    .sidebar-nav a { color: rgba(255,255,255,0.7); font-size: 13px; padding: 6px 10px; border-radius: 6px; transition: all 0.15s; }
+    .sidebar-nav a:hover { background: rgba(255,255,255,0.1); color: #fff; }
+    .sidebar-section-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); margin-bottom: 4px; padding-left: 10px; }
+    .contact-row { display: flex; align-items: center; gap: 8px; font-size: 12px; color: rgba(255,255,255,0.75); margin-bottom: 6px; }
+    .contact-row a { color: rgba(255,255,255,0.75); }
+    .contact-row a:hover { color: #fff; }
+    .contact-icon { width: 16px; text-align: center; opacity: 0.7; }
+    .status-pill { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; padding: 4px 10px; border-radius: 20px; }
+    .pill-green { background: rgba(29,158,117,0.2); color: #7ee8c1; border: 1px solid rgba(29,158,117,0.4); }
+    .pill-gold  { background: rgba(251,191,36,0.15); color: #fbbf24; border: 1px solid rgba(251,191,36,0.3); }
+    .pill-blue  { background: rgba(96,165,250,0.15); color: #93c5fd; border: 1px solid rgba(96,165,250,0.3); }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+    .cert-badge { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 10px 12px; font-size: 12px; color: rgba(255,255,255,0.8); }
+    .cert-badge strong { display: block; color: #fff; margin-bottom: 2px; font-size: 13px; }
+    .main { padding: 48px 52px; max-width: 900px; }
+    section { margin-bottom: 56px; }
+    section:first-child { margin-bottom: 48px; }
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--emerald); margin-bottom: 18px; display: flex; align-items: center; gap: 10px; }
+    .section-header::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .hero-name { font-size: 36px; font-weight: 800; color: var(--navy); line-height: 1.1; margin-bottom: 8px; }
+    .hero-sub { font-size: 17px; color: var(--muted); margin-bottom: 20px; }
+    .hero-summary { font-size: 15px; color: #444; line-height: 1.7; max-width: 640px; }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+    .skill-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+    .skill-card-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--navy); margin-bottom: 8px; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 5px; }
+    .tag { font-size: 12px; background: var(--tag-bg); color: var(--navy); padding: 3px 9px; border-radius: 20px; border: 1px solid var(--border); }
+    .project-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 26px 28px; margin-bottom: 20px; position: relative; overflow: hidden; }
+    .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+    .card-navy::before   { background: var(--navy); }
+    .card-emerald::before { background: var(--emerald); }
+    .card-purple::before { background: #7c3aed; }
+    .card-amber::before  { background: #d97706; }
+    .project-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+    .project-title { font-size: 17px; font-weight: 700; color: var(--navy); }
+    .project-subtitle { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .project-status { font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 20px; white-space: nowrap; }
+    .status-live     { background: var(--emerald-light); color: #0a6647; border: 1px solid #9FE1CB; }
+    .status-building { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
+    .status-complete { background: #ede9fe; color: #5b21b6; border: 1px solid #c4b5fd; }
+    .project-desc { font-size: 14px; color: #444; line-height: 1.65; margin-bottom: 14px; }
+    .integration-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .integration-badge { font-size: 11px; padding: 3px 9px; border-radius: 20px; font-weight: 500; }
+    .badge-live { background: var(--emerald-light); color: #0a6647; border: 1px solid #9FE1CB; }
+    .badge-soon { background: #f3f4f6; color: var(--muted); border: 1px solid var(--border); }
+    .project-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+    .project-link { font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 6px; border: 1px solid var(--border); background: var(--white); color: var(--navy); transition: all 0.15s; }
+    .project-link:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .project-link.primary { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .project-link.primary:hover { background: var(--navy-dark); }
+    .job { display: grid; grid-template-columns: 1fr auto; gap: 8px; margin-bottom: 28px; }
+    .job-title { font-size: 15px; font-weight: 700; color: var(--navy); }
+    .job-company { font-size: 13px; color: var(--muted); margin-top: 2px; }
+    .job-dates { font-size: 12px; color: var(--muted); white-space: nowrap; padding-top: 3px; font-style: italic; }
+    .job-bullets { margin-top: 10px; list-style: none; }
+    .job-bullets li { font-size: 14px; color: #444; line-height: 1.65; margin-bottom: 5px; padding-left: 16px; position: relative; }
+    .job-bullets li::before { content: '\25B8'; position: absolute; left: 0; color: var(--emerald); font-size: 11px; top: 2px; }
+    .edu-row { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center; }
+    .edu-degree { font-size: 15px; font-weight: 700; color: var(--navy); }
+    .edu-school { font-size: 13px; color: var(--muted); margin-top: 2px; }
+    .edu-year { font-size: 13px; color: var(--muted); font-style: italic; }
+    @media (max-width: 768px) {
+      .wrapper { grid-template-columns: 1fr; }
+      .sidebar { position: static; height: auto; }
+      .main { padding: 32px 24px; }
+      .hero-name { font-size: 28px; }
+      .project-top { flex-direction: column; }
     }
   </style>
 </head>
 <body>
-
-<!-- ═══════════════════════════════════════════════════
-     HEADER
-════════════════════════════════════════════════════ -->
-<header>
-  <img class="header-photo" src="profile.png" alt="Jacob Hamilton" />
-  <div class="header-text">
-    <h1>Jacob Hamilton</h1>
-    <div class="tagline">Product Manager · Application Development · Business Intelligence</div>
-  </div>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<div class="shell">
-
-  <!-- ═══════════════════════════════════════════════════
-       SIDEBAR
-  ════════════════════════════════════════════════════ -->
-  <aside>
-    <div class="sidebar-photo-wrap">
-      <img class="sidebar-photo" src="profile.png" alt="Jacob Hamilton" />
+<div class="wrapper">
+  <aside class="sidebar">
+    <div><div class="sidebar-avatar">JH</div></div>
+    <div>
       <div class="sidebar-name">Jacob Hamilton</div>
-      <div class="sidebar-role">B.S. Business Application Dev.</div>
+      <div class="sidebar-title">Technical Project Manager</div>
+      <div class="sidebar-title">U.S. Marine Corps Veteran</div>
     </div>
-
-    <div class="sidebar-section">
-      <div class="sidebar-label">Contact</div>
-      <div class="contact-item">
-        <span class="ci-label">Email</span>
-        <a href="mailto:jh0695@gmail.com">jh0695@gmail.com</a>
-      </div>
-      <div class="contact-item">
-        <span class="ci-label">LinkedIn</span>
-        <a href="https://www.linkedin.com/in/jacobghamilton/" target="_blank" rel="noopener noreferrer">jacobghamilton</a>
-      </div>
-      <div class="contact-item">
-        <span class="ci-label">GitHub</span>
-        <a href="https://github.com/jakeHamiltondev" target="_blank" rel="noopener noreferrer">jakeHamiltondev</a>
-      </div>
-      <div class="contact-item">
-        <span class="ci-label">Location</span>
-        <span>Wilmington, NC</span>
+    <div>
+      <div class="sidebar-section-label">Status</div>
+      <div style="display:flex; flex-direction:column; gap:6px;">
+        <div class="status-pill pill-green"><span class="dot"></span> Open to Opportunities</div>
+        <div class="status-pill pill-gold"><span class="dot"></span> PMP Candidate &middot; 2026</div>
+        <div class="status-pill pill-blue"><span class="dot"></span> UNCW Graduate &middot; May 2026</div>
       </div>
     </div>
-
-    <div class="sidebar-section">
-      <div class="sidebar-label">Status</div>
-      <div class="status-badge">
-        🎓 Graduate: May 2026<br/>
-        🔍 Open to Opportunities<br/>
-        🎖️ USMC Veteran
-      </div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-label">Navigate</div>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div>
+      <div class="sidebar-section-label">Contact</div>
+      <div class="contact-row"><span class="contact-icon">&#9993;</span><a href="mailto:jh0695@gmail.com">jh0695@gmail.com</a></div>
+      <div class="contact-row"><span class="contact-icon">in</span><a href="https://linkedin.com/in/jacobghamilton" target="_blank">jacobghamilton</a></div>
+      <div class="contact-row"><span class="contact-icon">gh</span><a href="https://github.com/jakeHamiltondev" target="_blank">jakeHamiltondev</a></div>
+      <div class="contact-row"><span class="contact-icon">&#128205;</span>Wilmington, NC</div>
+      <div class="contact-row"><span class="contact-icon">&#127482;&#127480;</span>U.S. Citizen</div>
     </div>
-
-    <div class="sidebar-section">
-      <div class="sidebar-label">Certifications</div>
-      <div class="contact-item">
-        <span class="ci-label">In Progress · 2026</span>
-        <span>PMP – Project Management Institute (PMI)</span>
+    <div>
+      <div class="sidebar-section-label">Certifications</div>
+      <div class="cert-badge">
+        <strong>PMP &mdash; PMI</strong>
+        PMI Authorized Prep Completed &middot; Exam Candidate
       </div>
     </div>
   </aside>
-
-  <!-- ═══════════════════════════════════════════════════
-       MAIN
-  ════════════════════════════════════════════════════ -->
-  <main>
-
-    <!-- ── ABOUT ── -->
+  <main class="main">
     <section id="about">
-      <div class="section-title">About Me</div>
-      <div class="section-sub">Background · Skills · Focus Areas</div>
-      <div class="about-text">
-        <p>
-          I'm a <strong>U.S. Marine Corps veteran</strong> and Business Application Development student
-          at the University of North Carolina Wilmington, graduating May 2026. I bring military discipline,
-          mission-focus, and a builder's mindset to every problem I take on.
-        </p>
-        <p>
-          My focus is <strong>application development and business intelligence</strong> — designing and
-          building software that drives real business value, from full-stack web applications to
-          data-driven tools that help organizations make smarter decisions. I'm currently targeting
-          careers where I can apply my technical skills, communication capabilities, and security-first thinking.
-        </p>
-        <p>
-          I approach technology the way I approached service: with structure, accountability, and a bias
-          toward action. I learn by building — every project on this site reflects a real problem I set
-          out to solve.
-        </p>
-      </div>
-
+      <div class="hero-name">Jacob Gilbert Hamilton</div>
+      <div class="hero-sub">Technical Project Manager &middot; Builder &middot; U.S. Marine Veteran</div>
+      <p class="hero-summary">
+        I&apos;m a U.S. Marine Corps veteran and UNCW graduate (B.S. Business Application Development, May 2026)
+        with a track record of leading end-to-end technology implementations and building software that solves
+        real business problems. I bring military discipline and a builder&apos;s mindset to every project &mdash; from
+        enterprise automation and API integrations at Campbell Oil, to shipping production SaaS products as a
+        solo founder. I&apos;m actively targeting roles where technical depth and project leadership intersect:
+        PM, product, or technical program management.
+      </p>
+      <div style="margin-top:32px;" class="section-header">Skills</div>
       <div class="skills-grid">
         <div class="skill-card">
-          <h4>Languages</h4>
-          <p>Python · C# · JavaScript · TypeScript · SQL</p>
+          <div class="skill-card-label">Project Management</div>
+          <div class="tag-list">
+            <span class="tag">Agile / Scrum</span><span class="tag">Stakeholder Management</span>
+            <span class="tag">Requirements Gathering</span><span class="tag">UAT</span>
+            <span class="tag">KPI Tracking</span><span class="tag">Risk Management</span>
+          </div>
         </div>
         <div class="skill-card">
-          <h4>Frameworks & Libraries</h4>
-          <p>.NET MAUI · Next.js 14 · React · Node.js · Tailwind CSS</p>
+          <div class="skill-card-label">Languages &amp; Data</div>
+          <div class="tag-list">
+            <span class="tag">Python</span><span class="tag">TypeScript</span>
+            <span class="tag">C#</span><span class="tag">SQL</span>
+            <span class="tag">JavaScript</span><span class="tag">REST APIs</span>
+          </div>
         </div>
         <div class="skill-card">
-          <h4>Security</h4>
-          <p>OWASP Top 10 · AES-256 · Argon2id · PBKDF2 · Zero-Knowledge Architecture</p>
+          <div class="skill-card-label">Frameworks &amp; Cloud</div>
+          <div class="tag-list">
+            <span class="tag">Next.js 14</span><span class="tag">React</span>
+            <span class="tag">.NET MAUI</span><span class="tag">Supabase</span>
+            <span class="tag">Vercel</span><span class="tag">PostgreSQL</span>
+          </div>
         </div>
         <div class="skill-card">
-          <h4>DevOps & Cloud</h4>
-          <p>GitHub · Supabase · Vercel · Raspberry Pi · Linux CLI · PostgreSQL</p>
+          <div class="skill-card-label">Tools &amp; Platforms</div>
+          <div class="tag-list">
+            <span class="tag">Jira</span><span class="tag">Power Automate</span>
+            <span class="tag">SharePoint</span><span class="tag">Microsoft 365</span>
+            <span class="tag">GitHub</span>
+          </div>
         </div>
         <div class="skill-card">
-          <h4>Integrations & APIs</h4>
-          <p>OAuth 2.0 · REST APIs · Clover API · Hugging Face · EODHD API</p>
+          <div class="skill-card-label">Security</div>
+          <div class="tag-list">
+            <span class="tag">OWASP Top 10</span><span class="tag">AES-256</span>
+            <span class="tag">Argon2id</span><span class="tag">OAuth 2.0</span>
+            <span class="tag">Zero-Knowledge</span>
+          </div>
         </div>
         <div class="skill-card">
-          <h4>Methodologies</h4>
-          <p>Agile / Scrum · CI/CD Concepts · Secure SDLC · Sprint Planning</p>
-        </div>
-        <div class="skill-card">
-          <h4>Soft Skills</h4>
-          <p>Leadership · Mission Planning · Technical Communication · Team Coordination</p>
-        </div>
-        <div class="skill-card">
-          <h4>Hardware & Embedded</h4>
-          <p>Raspberry Pi 4 · GPIO · L298N Motor Driver · SSH · Headless Linux</p>
+          <div class="skill-card-label">Hardware &amp; Embedded</div>
+          <div class="tag-list">
+            <span class="tag">Raspberry Pi 4</span><span class="tag">GPIO</span>
+            <span class="tag">Linux CLI</span><span class="tag">SSH</span><span class="tag">Bash</span>
+          </div>
         </div>
       </div>
     </section>
-
-    <!-- ── PROJECTS ── -->
     <section id="projects">
-      <div class="section-title">Projects</div>
-      <div class="section-sub">Full-Stack · Business Intelligence · Systems · Embedded</div>
-
-      <!-- MergeTender -->
-      <div class="project-card">
-        <div class="project-header">
-          <div class="project-title">MergeTender — Restaurant Payment Intelligence Platform</div>
-          <span class="tag tag-active">Live</span>
+      <div class="section-header">Projects</div>
+      <div class="project-card card-navy">
+        <div class="project-top">
+          <div>
+            <div class="project-title">MergeTender &mdash; Property Management Intelligence Platform</div>
+            <div class="project-subtitle">mergetender.com &middot; Full-Stack SaaS &middot; Solo Founder</div>
+          </div>
+          <span class="project-status status-live">&#9679; Live</span>
         </div>
-        <div class="project-desc">
-          Full-stack SaaS platform that aggregates payment and order data from fragmented restaurant
-          platforms (Clover, DoorDash, Toast) into a unified analytics dashboard. Built to solve real
-          reconciliation pain points for restaurant operators. Fully deployed to Vercel with a custom
-          domain and Clover OAuth integration. Currently ready for resume presentation and early user
-          testing.
+        <p class="project-desc">
+          Full-stack SaaS platform that unifies property management data into a single dashboard for property
+          management companies (PMCs). Generates professional owner statements with one click &mdash; automated PDF
+          reports covering income, expenses, and net income per property. Fully deployed to Vercel with a
+          Supabase backend, row-level security, and OAuth 2.0 authentication. Early access users being onboarded now.
+        </p>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); margin-bottom:8px;">Integrations</div>
+        <div class="integration-row">
+          <span class="integration-badge badge-live">&#9679; Buildium &mdash; Live</span>
+          <span class="integration-badge badge-live">&#9679; QuickBooks &mdash; Live</span>
+          <span class="integration-badge badge-soon">AppFolio &mdash; Coming Soon</span>
+          <span class="integration-badge badge-soon">DoorLoop &mdash; Coming Soon</span>
+          <span class="integration-badge badge-soon">Guesty &mdash; Coming Soon</span>
         </div>
-        <div class="project-stack">
-          <span class="stack-pill">Next.js 14</span>
-          <span class="stack-pill">React</span>
-          <span class="stack-pill">TypeScript</span>
-          <span class="stack-pill">Supabase</span>
-          <span class="stack-pill">PostgreSQL</span>
-          <span class="stack-pill">Clover OAuth</span>
-          <span class="stack-pill">Vercel</span>
-          <span class="stack-pill">Tailwind CSS</span>
-          <span class="stack-pill">REST APIs</span>
-        </div>
-        <div class="project-links">
-          <a href="https://mergetender.com" target="_blank" rel="noopener noreferrer">↗ Live Site</a>
-          <a href="https://github.com/jakeHamiltondev/mergetender" target="_blank" rel="noopener noreferrer">↗ GitHub</a>
-        </div>
-      </div>
-
-      <!-- RECON ROVER -->
-      <div class="project-card">
-        <div class="project-header">
-          <div class="project-title">RECON ROVER — Autonomous Ground Vehicle (UGV)</div>
-          <span class="tag tag-wip">In Progress</span>
-        </div>
-        <div class="project-desc">
-          Autonomous ground vehicle built on a Raspberry Pi 4 targeting federal and defense
-          portfolio applications. Hardware is fully assembled and motors verified working via direct
-          testing. Currently resolving GPIO pin compatibility issues (Debian Trixie OS) — conducting
-          a GPIO pin scan to identify functional pins before next phase. Roadmap includes Python motor
-          control, live camera streaming, GPS tracking, and network reconnaissance capabilities.
-        </div>
-        <div class="project-stack">
-          <span class="stack-pill">Raspberry Pi 4</span>
-          <span class="stack-pill">Python</span>
-          <span class="stack-pill">Debian Linux</span>
-          <span class="stack-pill">SSH</span>
-          <span class="stack-pill">GPIO</span>
-          <span class="stack-pill">L298N Motor Driver</span>
-          <span class="stack-pill">Bash</span>
+        <div class="tag-list">
+          <span class="tag">Next.js 14</span><span class="tag">React</span><span class="tag">TypeScript</span>
+          <span class="tag">Supabase</span><span class="tag">PostgreSQL</span><span class="tag">OAuth 2.0</span>
+          <span class="tag">Vercel</span><span class="tag">Tailwind CSS</span><span class="tag">PDF Generation</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/jakeHamiltondev/recon-rover/tree/main" target="_blank" rel="noopener noreferrer">↗ GitHub</a>
+          <a href="https://mergetender.com" target="_blank" class="project-link primary">&#8599; Live Site</a>
+          <a href="https://github.com/jakeHamiltondev/mergetender" target="_blank" class="project-link">&#8599; GitHub</a>
         </div>
       </div>
-
-      <!-- Secure Notes App -->
-      <div class="project-card">
-        <div class="project-header">
-          <div class="project-title">Secure Notes App — Enterprise-Grade Cryptography</div>
-          <span class="tag tag-complete">Complete</span>
+      <div class="project-card card-emerald">
+        <div class="project-top">
+          <div>
+            <div class="project-title">Linkfol &mdash; Digital Business Card Platform</div>
+            <div class="project-subtitle">linkfol.com (domain acquired) &middot; Full-Stack SaaS &middot; Solo Founder</div>
+          </div>
+          <span class="project-status status-live">&#9679; Live</span>
         </div>
-        <div class="project-desc">
-          C# and .NET MAUI application implementing enterprise-grade encryption for a zero-knowledge
-          notes architecture. Built specifically as a DevSecOps portfolio piece targeting federal
-          employers. Features Argon2id password hashing, AES-256 encryption, PBKDF2 key derivation,
-          and a design where the server never has access to plaintext data.
-        </div>
-        <div class="project-stack">
-          <span class="stack-pill">C#</span>
-          <span class="stack-pill">.NET MAUI</span>
-          <span class="stack-pill">AES-256</span>
-          <span class="stack-pill">Argon2id</span>
-          <span class="stack-pill">PBKDF2</span>
-          <span class="stack-pill">Zero-Knowledge</span>
-        </div>
-      </div>
-
-      <!-- Portfolio Card -->
-      <div class="project-card">
-        <div class="project-header">
-          <div class="project-title">Portfolio Card — Digital Business Card MVP</div>
-          <span class="tag tag-complete">Complete</span>
-        </div>
-        <div class="project-desc">
-          Modern, interactive digital business card web app built as a rapid MVP for a live
-          entrepreneurship competition. Features a flip-card animation, QR code generation, and
-          NFC card potential. Explored B2C and B2B SaaS monetization models, competitive analysis,
-          and architecture planning as part of the build. Demonstrates ability to ship fast under
-          pressure while keeping code clean.
-        </div>
-        <div class="project-stack">
-          <span class="stack-pill">HTML</span>
-          <span class="stack-pill">CSS</span>
-          <span class="stack-pill">JavaScript</span>
-          <span class="stack-pill">GitHub</span>
-          <span class="stack-pill">Vercel</span>
+        <p class="project-desc">
+          Professional identity platform that lets students and professionals create a shareable digital
+          business card in minutes. Sign up with Google, build your card, and share via a personal URL or
+          QR code &mdash; no app needed. Designed for career fairs, networking events, and everyday professional
+          introductions. MVP includes Google OAuth, public profile at
+          <code style="font-size:12px; background:var(--tag-bg); padding:1px 5px; border-radius:4px;">linkfol.com/username</code>,
+          QR code generation, and full profile management. Domain acquired; paid tiers and Apple Wallet integration on the roadmap.
+        </p>
+        <div class="tag-list">
+          <span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Supabase</span>
+          <span class="tag">Google OAuth</span><span class="tag">QR Code</span>
+          <span class="tag">Vercel</span><span class="tag">Tailwind CSS</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/jakeHamiltondev/portfolio_card" target="_blank" rel="noopener noreferrer">↗ GitHub</a>
+          <a href="https://digital-business-card-alpha-seven.vercel.app" target="_blank" class="project-link primary">&#8599; Live Site</a>
+          <a href="https://github.com/jakeHamiltondev/digital-business-card" target="_blank" class="project-link">&#8599; GitHub</a>
         </div>
       </div>
-
-    <!-- ── EXPERIENCE ── -->
+      <div class="project-card card-amber">
+        <div class="project-top">
+          <div>
+            <div class="project-title">RECON ROVER &mdash; Autonomous Ground Vehicle (UGV)</div>
+            <div class="project-subtitle">Defense / Federal Portfolio &middot; Embedded Systems</div>
+          </div>
+          <span class="project-status status-building">&#9881; In Progress</span>
+        </div>
+        <p class="project-desc">
+          Autonomous ground vehicle built on a Raspberry Pi 4, targeting federal and defense portfolio
+          applications. Hardware fully assembled with motors verified. Roadmap: Python motor control,
+          live camera streaming, GPS tracking, and network reconnaissance capabilities.
+        </p>
+        <div class="tag-list">
+          <span class="tag">Raspberry Pi 4</span><span class="tag">Python</span><span class="tag">Debian Linux</span>
+          <span class="tag">SSH</span><span class="tag">GPIO</span><span class="tag">L298N Motor Driver</span><span class="tag">Bash</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/jakeHamiltondev/recon-rover" target="_blank" class="project-link">&#8599; GitHub</a>
+        </div>
+      </div>
+      <div class="project-card card-purple">
+        <div class="project-top">
+          <div>
+            <div class="project-title">Secure Notes App &mdash; Enterprise-Grade Cryptography</div>
+            <div class="project-subtitle">DevSecOps Portfolio &middot; C# / .NET MAUI</div>
+          </div>
+          <span class="project-status status-complete">&#10003; Complete</span>
+        </div>
+        <p class="project-desc">
+          C# and .NET MAUI application implementing zero-knowledge notes architecture with enterprise-grade
+          encryption. Built as a DevSecOps portfolio piece for federal employers. The server never has access to plaintext data.
+        </p>
+        <div class="tag-list">
+          <span class="tag">C#</span><span class="tag">.NET MAUI</span><span class="tag">AES-256</span>
+          <span class="tag">Argon2id</span><span class="tag">PBKDF2</span><span class="tag">Zero-Knowledge</span>
+        </div>
+      </div>
+    </section>
     <section id="experience">
-      <div class="section-title">Experience</div>
-      <div class="section-sub">Military · Technical · Leadership</div>
-      <div class="timeline">
-
-        <div class="exp-card">
-          <div class="exp-org">United States Marine Corps</div>
-          <div class="exp-role">Active Duty Service Member</div>
-          <div class="exp-date">Separated · Veteran Status</div>
-          <ul class="exp-bullets">
-            <li>Operated in high-pressure, mission-critical environments requiring rapid decision-making, precision, and disciplined execution under ambiguous conditions.</li>
-            <li>Led and coordinated teams, demonstrating accountability, communication, and mission-planning skills directly transferable to technical project management.</li>
-            <li>Developed a security-conscious, process-driven mindset aligned with DevSecOps and federal technology roles.</li>
-          </ul>
+      <div class="section-header">Experience</div>
+      <div class="job">
+        <div>
+          <div class="job-title">Business Solutions Specialist</div>
+          <div class="job-company">Campbell Oil Company &middot; Wilmington, NC</div>
         </div>
-
-        <div class="exp-card">
-          <div class="exp-org">Campbell Oil Company</div>
-          <div class="exp-role">Business Data Support Intern</div>
-          <div class="exp-date">May 2025 - May 2026</div>
-          <ul class="exp-bullets">
-            <li>Gathered and synthesized customer segmentation data to surface behavioral patterns and present actionable findings to executive stakeholders. </li>
-            <li>Defined requirements for and assisted in training AI agents to automate executive reporting workflows, reducing manual reporting cycles and improving decision turnaround time. </li>
-            <li>Identified product need, scoped requirements, built, and independently deployed a full-stack event registration platform using Lovable, Supabase, and third-party payment APIs. </li>
-            <li>Parsed and audited large enterprise datasets to identify data quality issues, coordinating resolution across internal stakeholder channels to ensure reporting accuracy. </li>
-            <li>Executed structured data migration from physical records to enterprise systems, maintaining full traceability and auditability throughout. </li>
-          </ul>
+        <div class="job-dates">Jun 2025 &ndash; Present</div>
+        <ul class="job-bullets" style="grid-column: 1 / -1;">
+          <li>Lead 3+ concurrent technology implementation projects spanning RPA, API integrations, and enterprise business systems &mdash; owning scope, milestones, UAT, and stakeholder sign-off end-to-end.</li>
+          <li>Drive cross-functional alignment across operations, finance, and IT to translate ambiguous business needs into structured project requirements and delivery plans.</li>
+          <li>Build KPI dashboards and project status artifacts providing real-time visibility to leadership and enabling data-driven decisions.</li>
+          <li>Evaluate emerging technologies and author formal recommendation reports for executive stakeholders, directly influencing strategic investment decisions.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div>
+          <div class="job-title">Business Data Support Intern</div>
+          <div class="job-company">Campbell Oil Company &middot; Wilmington, NC</div>
         </div>
-
-        <div class="exp-card">
-          <div class="exp-org">University of North Carolina Wilmington</div>
-          <div class="exp-role">B.S. Business Application Development Student · Cameron School of Business</div>
-          <div class="exp-date">January 2024 – May 2026</div>
-          <ul class="exp-bullets">
-            <li>Built a portfolio of real-world projects spanning full-stack web development, enterprise cryptography, embedded systems, and machine learning integration.</li>
-            <li>Applied academic coursework in database design, software engineering, and business intelligence to production-ready applications.</li>
-            <li>Competed in entrepreneurship competitions, pitching and demoing functional MVPs under live conditions.</li>
-          </ul>
+        <div class="job-dates">May 2025 &ndash; Jun 2025</div>
+        <ul class="job-bullets" style="grid-column: 1 / -1;">
+          <li>Designed and delivered a full-stack event registration platform from requirements to production in under four weeks.</li>
+          <li>Contributed to AI-driven process automation and executive-level business intelligence reporting.</li>
+          <li>Executed enterprise-wide data validation across critical business systems, identifying and escalating data integrity issues for remediation.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div>
+          <div class="job-title">Heavy Equipment Operator</div>
+          <div class="job-company">United States Marine Corps &middot; Active Duty</div>
         </div>
-
+        <div class="job-dates">Mar 2018 &ndash; Mar 2022</div>
+        <ul class="job-bullets" style="grid-column: 1 / -1;">
+          <li>Directed operational readiness and maintenance planning for a 12-Marine team and multi-million dollar equipment portfolio, maintaining 100% asset availability in mission-critical conditions.</li>
+          <li>Coordinated cross-unit logistics, scheduling, and resource allocation in high-tempo environments &mdash; applying core PM disciplines of scope, schedule, and resource management under pressure.</li>
+          <li>Sustained zero equipment loss through rigorous documentation, chain-of-custody protocols, and proactive risk mitigation across multiple deployments.</li>
+        </ul>
       </div>
     </section>
-
-    <!-- ── EDUCATION ── -->
     <section id="education">
-      <div class="section-title">Education & Credentials</div>
-      <div class="section-sub">Degrees · Certifications · Training</div>
-
-      <div class="edu-row">
-        <div class="edu-icon">🎓</div>
+      <div class="section-header">Education &amp; Credentials</div>
+      <div class="edu-row" style="margin-bottom:12px;">
         <div>
-          <div class="edu-org">University of North Carolina Wilmington</div>
-          <div class="edu-degree">B.S. Business Application Development · College of Science and Engineering</div>
-          <div class="edu-date">Graduating May 2026</div>
+          <div class="edu-degree">B.S. Business Application Development</div>
+          <div class="edu-school">University of North Carolina Wilmington &middot; Cameron School of Business</div>
         </div>
+        <div class="edu-year">May 2026</div>
       </div>
-
-      <div class="edu-row">
-        <div class="edu-icon">🛡️</div>
+      <div class="edu-row" style="margin-bottom:12px;">
         <div>
-          <div class="edu-org">PMP – Project Management Institute (PMI)</div>
-          <div class="edu-degree">Demonstrates foundational knowledge of project management principles, terminology, and processes &amp;</div>
-          <div class="edu-date">In Progress · Target: 2026</div>
+          <div class="edu-degree">PMP &mdash; Project Management Institute</div>
+          <div class="edu-school">PMI Authorized Exam Preparation Completed &middot; Exam Candidate</div>
         </div>
+        <div class="edu-year">In Progress &middot; 2026</div>
       </div>
-
       <div class="edu-row">
-        <div class="edu-icon">🎖️</div>
         <div>
-          <div class="edu-org">United States Marine Corps</div>
-          <div class="edu-degree">Active duty service — leadership, operational planning, mission execution, and security-first mindset</div>
-          <div class="edu-date">Veteran</div>
+          <div class="edu-degree">United States Marine Corps</div>
+          <div class="edu-school">Active duty &mdash; leadership, operational planning, mission execution, security-first mindset</div>
         </div>
+        <div class="edu-year">Veteran &middot; 2022</div>
       </div>
     </section>
-
-    <!-- ── CONTACT ── -->
     <section id="contact">
-      <div class="section-title">Contact</div>
-      <div class="section-sub">Let's connect</div>
-      <p class="contact-intro">
-        I'm actively seeking full-time roles in poduct management, application development, and DevSecOps starting May 2026. Feel free to reach out via any of the channels below.
+      <div class="section-header">Contact</div>
+      <p style="font-size:15px; color:#444; max-width:520px; margin-bottom:20px; line-height:1.7;">
+        I&apos;m actively seeking full-time roles in project management, product management, and technical
+        program management. Open to remote and relocation. Feel free to reach out directly.
       </p>
-      <div class="contact-grid">
-        <div class="contact-card">
-          <h4>Email</h4>
-          <a href="mailto:jh0695@gmail.com">jh0695@gmail.com</a>
-        </div>
-        <div class="contact-card">
-          <h4>LinkedIn</h4>
-          <a href="https://www.linkedin.com/in/jacobghamilton/" target="_blank" rel="noopener noreferrer">linkedin.com/in/jacobghamilton</a>
-        </div>
-        <div class="contact-card">
-          <h4>GitHub</h4>
-          <a href="https://github.com/jakeHamiltondev" target="_blank" rel="noopener noreferrer">github.com/jakeHamiltondev</a>
-        </div>
-        <div class="contact-card">
-          <h4>Location</h4>
-          <p>Wilmington, NC · Open to Remote &amp; Relocation</p>
-        </div>
+      <div style="display:flex; flex-wrap:wrap; gap:10px;">
+        <a href="mailto:jh0695@gmail.com" class="project-link primary">&#9993; jh0695@gmail.com</a>
+        <a href="https://linkedin.com/in/jacobghamilton" target="_blank" class="project-link">LinkedIn</a>
+        <a href="https://github.com/jakeHamiltondev" target="_blank" class="project-link">GitHub</a>
       </div>
     </section>
-
   </main>
 </div>
-
-<footer>
-  <span>Jacob Hamilton · Business Application Development · UNCW 2026</span>
-  <span>🎖️ USMC Veteran · Open to Opportunities</span>
-</footer>
-
 </body>
 </html>
